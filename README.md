@@ -48,7 +48,7 @@ To improve upon our baseline model, we decided to construct a further investigat
 
 First, `U.S._STATE`, states can be a geographical information that contribute to the amount of electricity consumption. For example, states with higher indsutrial heavey cities will have a upward sloping relationship with the amount of electricity consumptoin. 
 
-*Insert graph after double check*
+<iframe src="assets/state-relation.html" width=800 height=600 frameBorder=0></iframe>
 
 *** This also goes for industrial customers too much noise need standadize 
 
