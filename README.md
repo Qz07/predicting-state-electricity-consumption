@@ -50,10 +50,26 @@ First, `U.S._STATE`, states can be a geographical information that contribute to
 
 <iframe src="assets/state-relation.html" width=800 height=600 frameBorder=0></iframe>
 
-*** This also goes for industrial customers too much noise need standadize 
+Moreover, another significant factor that could impact the industrial electricity consumption in an area is the presence of industrial customers. A region with a larger number of industrial customers is likely to experience increased electricity consumption, driven by elevated demand and a greater overall usage of electricity.
 
-*** There's alot of noise within population after we see the graph there are possible clusters thus we added different tags on to the population numbers 
+<iframe src="assets/ind-customer-relation.html" width=800 height=600 frameBorder=0></iframe>
 
+While the graph reveals three prominent clusters, it is evident that the data points exhibit a significant spread with high variance, indicating the presence of noise. Given the substantial scale of industrial consumers, their influence on the model coefficients can be disproportionately large. To mitigate this impact and achieve more consistent predictions while reducing variance, we have opted to standardize the features. This is a good feature to include in the final model becuase there is a direct trend in the relation of industrial customers and industrial electricity consumption, due to this high corrlation we belive that it will improve our model prediction accuracy. 
+
+
+Total population is a factor directly related to electricity consumption 
+
+<iframe src="assets/population-relation.html" width=800 height=600 frameBorder=0></iframe>
+
+Suprisingly, there is clustering according to population size. There are four main clusters when the total population is less than 10M, between 10M and 20M, between 20M and 30M, and above 30M. We can generalize the their relationship by binning the total population into four responding categories(small, medium, large, huge). More specifically, we will transform `POPULATION` two four ordinal ordinal categories and OneHot Encode them. This is good for the data prediction task in a sense that we manualy created a observed split within the feature. 
+
+***Grid search for model 
+<iframe src="assets/comparsion-of-diff-model.html" width=800 height=600 frameBorder=0></iframe>
+
+***Grid search for hyperparameters 
+
+
+<iframe src="assets/baseline-final.html" width=800 height=600 frameBorder=0></iframe>
 
 State the features you added and why they are good for the data and prediction task. Note that you can’t simply state “these features improved my accuracy”, since you’d need to choose these features and fit a model before noticing that – instead, talk about why you believe these features improved your model’s performance from the perspective of the data generating process.
 
@@ -74,8 +90,9 @@ Alternative Hypothesis: Our model is unfair. The RMSE for outstanding GSP perfor
 Utilizing a regression model, we can employ metrics such as mean square error to compare the means within the groups and evaluate the fairness of our model with respect to GSP performance.
 
 
-
+<iframe src="assets/emp-test-stat.html" width=800 height=600 frameBorder=0></iframe>
 
 Optional: Embed a visualization related to your permutation test in your website.
 
 Tip: When making writing your conclusions to the statistical tests in this project, never use language that implies an absolute conclusion; since we are performing statistical tests and not randomized controlled trials, we cannot prove that either hypothesis is 100% true or false.
+
