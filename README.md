@@ -14,11 +14,9 @@ The variable under consideration is `IND.SALES`, representing electricity consum
 
 Given that our problem pertains to regression analysis, we have opted to employ the Mean Absolute Percentage Error (MAPE) as a metric to evaluate our model. This choice is motivated by the inherent characteristics of regression models and the variability present in the data. Predicting exact values with precision can be challenging, and relying solely on the Mean Squared Error might lead to confusion. The Mean Absolute Percentage Error, on the other hand, gauges the average magnitude of errors relative to the scale of the dataset. Expressing the prediction error as a percentage in comparison to the actual value facilitates a more accessible interpretation. This approach provides a general range of error, offering insights into how the model is performing against actual values.
 
-$$
-\begin{gather*}
-MAPE = \frac{1}{n} \sum_{t=1}^{n} \left| \frac{A_{t} - F_{t}}{A_{t}} \right|\\
-\end{gather*}
-$$
+<iframe src='http://mathurl.com/y2f3kpgg'></iframe>
+
+
 Where:  
 n = number of total predictions  
 A\_t = actual value  
@@ -42,7 +40,7 @@ In constructing our baseline model, we opted for a straightforward linear regres
 
 The accuracy metrics produced by the model indicate a training accuracy of 0.47 and a testing accuracy of 0.43. These values, being in proximity to 0.50, suggest a relatively low accuracy, akin to that of a coin flip. Further evaluation and refinement may be necessary to enhance the model's predictive capabilities.
 
-<iframe src="assets/residual-plot.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/residual-baseline.html" width=800 height=600 frameBorder=0></iframe>
 
 # Final Model 
 
@@ -113,4 +111,4 @@ Utilizing a regression model, we can employ metrics such as mean square error to
 
 <iframe src="assets/emp-test-stat.html" width=800 height=600 frameBorder=0></iframe>
 
-From this test it yield a p-value of _____. Since the p-value is greater than 0.05, we fail to reject our null hypothesis. It is likely that our model is fair toward areas with either outstanding or weak GSP performance. However, further investigation is needed to prove the statement.
+From this test it yield a p-value of 0.3014. Since the p-value is greater than 0.05, we fail to reject our null hypothesis. It is likely that our model is fair toward areas with either outstanding or weak GSP performance. However, further investigation is needed to prove the statement.
