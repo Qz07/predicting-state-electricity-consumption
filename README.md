@@ -113,13 +113,19 @@ However, our testing model yields a lower training MAPE when compared to testing
 
 Revisiting the trend observed in states with high GSP per utility experiencing potentially longer durations, we sought to assess the fairness of our model concerning the same criterion of outstanding GSP. We defined the region where PC.REALGSP.REL is greater than or equal to 1 as the outstanding GSP performance area, and conversely, the region where PC.REALGSP.REL is less than 1 as the weak GSP performance area.
 
-Group A: The area with outstanding GSP performance
-Group B: The area with weak (not outstanding) GSP performance
-Null Hypothesis: Our model is fair. The Root Mean Square Error (RMSE) for the outstanding GSP performance area (Group A) and weak GSP performance area (Group B) is approximately the same, and any differences are attributed to random chance.
+**Group A**: The area with outstanding GSP performance
 
-Alternative Hypothesis: Our model is unfair. The RMSE for outstanding GSP performance area (Group A) differs from that of the weak GSP performance area (Group B).
+**Group B**: The area with weak (not outstanding) GSP performance
 
-Utilizing a regression model, we can employ metrics such as mean square error to compare the means within the groups and evaluate the fairness of our model with respect to GSP performance.
+**Null Hypothesis**: Our model is fair. The Root Mean Square Error (RMSE) for the outstanding GSP performance area (Group A) and weak GSP performance area (Group B) is approximately the same, and any differences are attributed to random chance.
+
+**Alternative Hypothesis**: Our model is unfair. The RMSE for outstanding GSP performance area (Group A) differs from that of the weak GSP performance area (Group B).
+
+**Test Statstic**: the absolute difference of the prediction metric(RMSE) of the outstanding GSP perforamnce area(Group A) and the prediction metric(RMSE) of the weak GSP performance area(Group B)
+
+**Significant leve**: 0.05
+
+Utilizing a regression model, we can employ metrics root mean square error to compare the means within the groups and evaluate the fairness of our model with respect to GSP performance.
 
 <iframe src="assets/emp-test-stat.html" width=800 height=600 frameBorder=0></iframe>
 
