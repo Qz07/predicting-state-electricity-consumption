@@ -14,8 +14,7 @@ The variable under consideration is `IND.SALES`, representing electricity consum
 
 Given that our problem pertains to regression analysis, we have opted to employ the Mean Absolute Percentage Error (MAPE) as a metric to evaluate our model. This choice is motivated by the inherent characteristics of regression models and the variability present in the data. Predicting exact values with precision can be challenging, and relying solely on the Mean Squared Error might lead to confusion. The Mean Absolute Percentage Error, on the other hand, gauges the average magnitude of errors relative to the scale of the dataset. Expressing the prediction error as a percentage in comparison to the actual value facilitates a more accessible interpretation. This approach provides a general range of error, offering insights into how the model is performing against actual values.
 
-<iframe src='http://mathurl.com/y2f3kpgg'></iframe>
-
+<iframe src="assets/MAPE.png"></iframe>
 
 Where:  
 n = number of total predictions  
