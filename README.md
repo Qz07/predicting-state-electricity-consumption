@@ -6,8 +6,11 @@ By: Guoxuan Xu, Qirui Zheng
 # Framing the Problem
 In our previous analysis, we explored the correlation between the proportion of the utility factor and outage duration, emphasizing the critical role electricity plays in our daily lives. Even a brief power outage can instill uncertainty and fear within communities. Building on this, we seek to further investigate the intricate relationship between electricity and various factors. This study focuses on predicting energy consumption in industrial sectors within a specific state, utilizing relevant information. Accurate predictions are crucial for comprehending how industrial energy demands may impact the power grid, potentially leading to outages. By effectively forecasting industrial electricity consumption, we aim to assist electricity departments in each state in better managing their resources. 
 
-The variable under consideration is `IND.SALES`, representing electricity consumption in the industrial sector measured in megawatt-hours. Our exploratory data analysis in Project 3 uncovered intriguing trends, specifically noting that states with lower utility industry GSP tend to experience shorter outage durations. This led us to formulate a hypothesis: states with a significant proportion of GSP utility contribution are more likely to possess a substantial utility base. In the event of a power outage, it is conceivable that larger utility sectors may require more time to restore service. This observation is just one among several factors contributing to variations in electricity consumption. In our regression model, we aim to investigate the relationship between total consumption and other factors, including land area and population, among others. 
-*Which variables are we using in the start?*
+The variable under consideration is `IND.SALES`, representing electricity consumption in the industrial sector measured in megawatt-hours. Our exploratory data analysis in Project 3 uncovered intriguing trends, specifically noting that states with lower utility industry GSP tend to experience shorter outage durations. This led us to formulate a hypothesis: states with a significant proportion of GSP utility contribution are more likely to possess a substantial utility base. In the event of a power outage, it is conceivable that larger utility sectors may require more time to restore service. This observation is just one among several factors contributing to variations in electricity consumption. In our regression model, we aim to investigate the relationship between total consumption and other factors, including land area and population, among others.
+`MONTH`: Month when the outage occurred
+`U.S._STATE`: All US States
+`IND.CUSTOMERS`: Annual number of customers served in the industrial electricity sector of the U.S. state
+`POPULATION`: Population in the U.S. state in a year
 
 Given that our problem pertains to regression analysis, we have opted to employ the Mean Absolute Percentage Error (MAPE) as a metric to evaluate our model. This choice is motivated by the inherent characteristics of regression models and the variability present in the data. Predicting exact values with precision can be challenging, and relying solely on the Mean Squared Error might lead to confusion. The Mean Absolute Percentage Error, on the other hand, gauges the average magnitude of errors relative to the scale of the dataset. Expressing the prediction error as a percentage in comparison to the actual value facilitates a more accessible interpretation. This approach provides a general range of error, offering insights into how the model is performing against actual values.
 
@@ -23,7 +26,10 @@ F\_t = forecast value
 
 We adopted similar steps as in project 3 to clean the dataframe the same way. 
 
-*insert head of the dataframe first 5 rows*
+Here is the first 5 rows of the dataframe with features that we will be predicting on: 
+
+'|    |   MONTH | U.S._STATE   |   IND.CUSTOMERS |   POPULATION |\n|---:|--------:|:-------------|----------------:|-------------:|\n|  0 |       7 | Minnesota    |           10673 |      5348119 |\n|  1 |       5 | Minnesota    |            9898 |      5457125 |\n|  2 |      10 | Minnesota    |           10150 |      5310903 |\n|  3 |       6 | Minnesota    |           11010 |      5380443 |\n|  4 |       7 | Minnesota    |            9812 |      5489594 |'
+
 # Baseline Model
 In constructing our baseline model, we opted for a straightforward linear regression approach with two features: month and population. The month feature, initially treated as a quantitative variable, underwent transformation into a qualitative form and was encoded using One Hot Encoding. On the other hand, the population, a continuous quantitative variable, was utilized without preprocessing. For our train-test split, we selected a ratio of 30% for training and 70% for testing. Notably, since one of our features involves time series data (month) and predictions were intended for upcoming months, we manually implemented the train-test split by sorting the dataframe based on time series data and allocating the initial 70% for training and the subsequent 30% for testing.
 
@@ -36,6 +42,10 @@ To improve upon our baseline model, we decided to construct a further investigat
 First, `U.S._STATE`, states can be a geographical information that contribute to the amount of electricity consumption. For example, states with higher indsutrial heavey cities will have a upward sloping relationship with the amount of electricity consumptoin. 
 
 *Insert graph after double check*
+
+*** This also goes for industrial customers too much noise need standadize 
+
+*** There's alot of noise within population after we see the graph there are possible clusters thus we added different tags on to the population numbers 
 
 
 State the features you added and why they are good for the data and prediction task. Note that you can’t simply state “these features improved my accuracy”, since you’d need to choose these features and fit a model before noticing that – instead, talk about why you believe these features improved your model’s performance from the perspective of the data generating process.
@@ -55,6 +65,9 @@ Null Hypothesis: Our model is fair. The Root Mean Square Error (RMSE) for the ou
 Alternative Hypothesis: Our model is unfair. The RMSE for outstanding GSP performance area (Group A) differs from that of the weak GSP performance area (Group B).
 
 Utilizing a regression model, we can employ metrics such as mean square error to compare the means within the groups and evaluate the fairness of our model with respect to GSP performance.
+
+
+
 
 Optional: Embed a visualization related to your permutation test in your website.
 
