@@ -99,7 +99,7 @@ From the steps above the final model is built as such:
 4. `POPULATION` is categorized and One Hot Encoded 
 5. `POPULATION` the orginal value is standardized
 
-With the best hyperparamers found from above our model in the pipeline takes in the parameters of criterion = absolute_error, max_features = 25, and n_estimators = 100.
+With the best hyperparamers found from above our model, random forest regressor, in the pipeline takes in the parameters of criterion = absolute_error, max_features = 25, and n_estimators = 100.
 
 This model is then fitted on the given input dataframes. 
 
