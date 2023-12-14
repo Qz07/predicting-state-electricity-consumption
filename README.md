@@ -87,7 +87,7 @@ Within a Random Forest Regressor, various hyperparameters play a crucial role in
 After running `GrideSearchCV`: 
 - criterion: squared_error 
 - max_depth: None 
-- max_features: 25
+- max_features: 20
 - n_estimators: 50
 
 In comparing to baseline model, we have a lower MAPE on both training and testing data set for final model which shows that our final model has improved in terms of reducing bias and variance.
@@ -110,4 +110,5 @@ Utilizing a regression model, we can employ metrics such as mean square error to
 
 <iframe src="assets/emp-test-stat.html" width=800 height=600 frameBorder=0></iframe>
 
-From this test it yield a p-value of 0.3014. Since the p-value is greater than 0.05, we fail to reject our null hypothesis. It is likely that our model is fair toward areas with either outstanding or weak GSP performance. However, further investigation is needed to prove the statement.
+From this test it yield a p-value of 0.5308
+. Since the p-value is greater than 0.05, we fail to reject our null hypothesis. It is likely that our model is fair toward areas with either outstanding or weak GSP performance. However, further investigation is needed to prove the statement.
