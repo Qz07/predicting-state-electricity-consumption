@@ -95,15 +95,9 @@ After running `GrideSearchCV`:
 
 In comparing to baseline model, we have a lower MAPE on both training and testing data set for final model which shows that our final model has improved in terms of reducing bias and variance.
 
-However, our testing mode
+However, our testing model yields a lower training MAPE when compared to testing MAPE. Based on the nature of how model trainig works, this is resonable but futher works can be done in tuning to yeid a better model in which the training error is closer to the testng error. 
 
 <iframe src="assets/baseline-final.html" width=800 height=600 frameBorder=0></iframe>
-
-State the features you added and why they are good for the data and prediction task. Note that you can’t simply state “these features improved my accuracy”, since you’d need to choose these features and fit a model before noticing that – instead, talk about why you believe these features improved your model’s performance from the perspective of the data generating process.
-
-Describe the modeling algorithm you chose, the hyperparameters that ended up performing the best, and the method you used to select hyperparameters and your overall model. Describe how your Final Model’s performance is an improvement over your Baseline Model’s performance.
-
-Optional: Include a visualization that describes your model’s performance, e.g. a confusion matrix, if applicable.
 
 # Fairness Analysis
 
@@ -117,10 +111,6 @@ Alternative Hypothesis: Our model is unfair. The RMSE for outstanding GSP perfor
 
 Utilizing a regression model, we can employ metrics such as mean square error to compare the means within the groups and evaluate the fairness of our model with respect to GSP performance.
 
-
 <iframe src="assets/emp-test-stat.html" width=800 height=600 frameBorder=0></iframe>
 
-Optional: Embed a visualization related to your permutation test in your website.
-
-Tip: When making writing your conclusions to the statistical tests in this project, never use language that implies an absolute conclusion; since we are performing statistical tests and not randomized controlled trials, we cannot prove that either hypothesis is 100% true or false.
-
+From this test it yield a p-value of _____. Since the p-value is greater than 0.05, we fail to reject our null hypothesis. It is likely that our model is fair toward areas with either outstanding or weak GSP performance. However, further investigation is needed to prove the statement.
